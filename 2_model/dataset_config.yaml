@@ -1,0 +1,7 @@
+names:
+- car
+nc: 1
+path: A:\commento\2_model\datasets
+test: A:\commento\2_model\datasets/images/test
+train: A:\commento\2_model\datasets/images/train
+val: A:\commento\2_model\datasets/images/val
