@@ -1,0 +1,7 @@
+names:
+- car
+nc: 1
+path: A:/바탕화면/코멘토 직무체험/datasets
+test: A:/바탕화면/코멘토 직무체험/datasets/images/test
+train: A:/바탕화면/코멘토 직무체험/datasets/images/train
+val: A:/바탕화면/코멘토 직무체험/datasets/images/val

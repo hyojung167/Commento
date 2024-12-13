@@ -1,0 +1,40 @@
+1차업무(~9월 4일 수요일 23:59)
+
+1. 외부 데이터(데이콘 차량 객체 탐지 관련 데이터) 확인 및 훈련
+ - train/test 데이터셋 구축 
+
+2. 객체 탐지를 위한 최신 모델 아키텍처 조사하고 선택 
+ - 예상 성능 요구사항을 충족시킬 수 있을지 확인  
+ - YOLOv5 모델 속도, 성능, 훈련용 튜토리얼 코드 및 참고자료 확인
+ - 다른 모델과 비교해서 좋은 베이스 모델 선택 
+
+3. 모델 학습 및 추론 용 개발환경 설정 (jupyter notebook / colab) 후 작동 확인 
+
+결과물 형식
+1. jupyter notebook / google colab
+2. 모델 조사 내용 ppt 1~3장 
+
+
+R-CNN 
+
+
+------
+데이터 label을 yolo format으로 변환
+-기존 labelme 형식: 객체의 4개 꼭짓점 x,y좌표 정보 => 숫자가 한 개체당 8개
+-yolo format: normalized xywh(xcenter ycenter width height) 정보 => 숫자가 한 개체당 4개				
+xcenter, width를 image width로 나누기, ycenter,height를 image height로 나누			
+즉 0에서 1사이의 값 
+
+변환하려면 
+width=(클래스 제외)첫번째 세번째 숫자의 차
+xcenter=width/2
+height=(클래스 제외)두번째 여섯번째 숫자의 차
+ycenter=height/2
+그렇게 구한 값을 이미지 width(xcenter,width), height(ycenter,height)로 나누기
+
+최종 저장값은 class, xcenter, ycenter, width, height 순
+
+-----
+최종 dataset은 image-train, val / labels-train,val로 구분 (image에는 이미지파일만, labels에는 txt 파일만 / 각 데이터 이름은 동일하게)
+
+
